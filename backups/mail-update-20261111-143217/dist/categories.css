@@ -1,0 +1,28 @@
+.category-toolbar{display:flex;align-items:center;justify-content:space-between;margin:28px 0 14px}
+.category-toolbar h2{font-size:15px}
+.category-grid{grid-template-columns:repeat(var(--category-columns,3),minmax(0,1fr));gap:16px;margin-top:0;align-items:start}
+.category{min-width:0}
+.category-head{padding:16px 13px;gap:8px}
+.category-head>.flex{min-width:0;flex:1}
+.category-head b{overflow-wrap:anywhere;line-height:1.6}
+.category-head .mini-icon{flex-shrink:0}
+.task-card{padding:13px;margin:10px;width:calc(100% - 20px)}
+.task-card b,.task-card p,.task-foot span{overflow-wrap:anywhere}
+.task-card .task-foot{flex-wrap:wrap;gap:8px}
+.category-dialog{width:min(600px,calc(100vw - 32px));max-height:85vh}
+.category-editor-list{display:grid;gap:12px;margin:22px 0}
+.category-editor-row{display:grid;grid-template-columns:20px 42px minmax(0,1fr) 36px;gap:10px;align-items:center}
+.category-number{font-size:11px;color:#a598b3}
+.category-icon-button{height:42px;border-radius:12px;background:#f1ecfc;color:#9271d9;display:grid;place-items:center}
+.category-name-field input{width:100%;padding:11px 12px;border:1px solid #e5dfed;border-radius:11px;background:#fcfbfe;color:#544c61;outline:none}
+.category-name-field input:focus{border-color:#a68be1;box-shadow:0 0 0 3px #f3edfe}
+.category-icon-picker{grid-column:2/-1;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;padding:12px;background:#faf8fd;border:1px solid #eee7f8;border-radius:14px}
+.category-icon-picker button{display:flex;flex-direction:column;align-items:center;gap:7px;padding:10px 3px;border:1px solid transparent;border-radius:10px;color:#9c8cad}
+.category-icon-picker button span{font-size:10px}
+.category-icon-picker button:hover,.category-icon-picker button.chosen{background:#eee7fc;color:#8562c4;border-color:#c9b3f1}
+.category-new{width:100%;justify-content:center;border-style:dashed}
+.category-editor-row button:disabled{opacity:.3;cursor:not-allowed}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:1000px){.category-grid{gap:10px}.category-head{padding:12px 8px}.category-head .mini-icon{margin-right:5px;width:24px;height:24px}.category-head b{font-size:11px}}
+@media(max-width:700px){.category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:430px){.category-grid{grid-template-columns:1fr}}

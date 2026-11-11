@@ -1,0 +1,47 @@
+/* Spacious desktop workspace */
+.page.detail-wide{max-width:none;padding:28px 28px 24px}
+.detail-wide .breadcrumbs{margin-bottom:16px}
+.detail-wide .metrics{margin:16px 0 22px}
+.detail-wide .page-head h1{font-size:29px}
+.detail-wide .timeline-head,.detail-wide .timeline-row{grid-template-columns:250px 1fr}
+.task-scroll{overflow:auto!important;max-height:470px!important;scrollbar-gutter:stable;overscroll-behavior:contain}
+.task-scroll .row-label{position:sticky;left:0;z-index:3;box-shadow:2px 0 7px #41355208}
+.task-scroll .label-head{position:sticky;left:0;z-index:6;background:white}
+.task-scroll .timeline-head{z-index:5}
+.task-scroll::-webkit-scrollbar{height:13px;width:11px}
+.task-scroll::-webkit-scrollbar-thumb{background:#cec6de;border-radius:8px;border:3px solid white}
+.task-scroll::-webkit-scrollbar-track{background:#f5f3f8}
+.task-done .row-label{background:#f8f9fa}
+.task-done .label-copy b{color:#96909d}
+.task-done .bar{opacity:.6}
+.completed-more{width:100%;padding:13px 10px;color:#8d7aa5;background:#faf8fd;border-top:1px solid #eee8f5;font-size:11px}
+.completed-more:hover{background:#f0eafb}
+.completed-list .task-card{display:block}
+.completed-list p,.task-card p{white-space:pre-wrap}
+/* Editor grows with its note, not with a user drag handle. */
+dialog.task-editor{width:min(680px,calc(100vw - 40px));max-height:90vh;overflow-y:auto}
+textarea[name="note"]{resize:none!important;overflow:hidden;min-height:110px;line-height:1.8;box-sizing:border-box}
+.expand-editor{margin-left:auto;margin-right:10px;font-size:11px}
+dialog.fullscreen-editor{position:fixed;inset:0;width:100vw;max-width:100vw;height:100vh;max-height:100vh;margin:0;border:0;border-radius:0;padding:30px 5vw}
+.fullscreen-editor .modal-head{position:sticky;top:-30px;background:white;z-index:3;padding:18px 0}
+.fullscreen-editor .modal-foot{position:sticky;bottom:-30px;background:white;padding:18px 0}
+.fullscreen-editor textarea[name="note"]{min-height:220px}
+/* Quiet home with projects following an elliptical orbit. */
+.home-page{max-width:none;padding:20px 32px;overflow:hidden}
+.home-actions{display:flex;justify-content:flex-end}
+.orbit-stage.orbit-live{height:calc(100vh - 180px);min-height:480px;margin:0;--orbit-radius:min(35vw,560px);overflow:visible}
+.orbit-live .orbit-ring{width:calc(var(--orbit-radius)*2);height:calc(var(--orbit-radius)*1.1);transform:none;border-style:solid;border-color:#e9e4f3}
+.orbit-live .orbit-ring.two{width:calc(var(--orbit-radius)*2 + 55px);height:calc(var(--orbit-radius)*1.1 + 35px);transform:none;border-style:dashed;opacity:.65}
+.orbit-center{display:grid;place-items:center;width:70px;height:70px;border-radius:24px;background:#f3effb;color:#c2b3e1}
+.orbit-center svg{width:40px;height:40px}
+.orbit-position{position:absolute;inset:0;pointer-events:none;transform:scaleY(.55);animation:orbit-track 120s linear infinite;animation-delay:var(--phase);transform-origin:center}
+.orbit-upright{position:absolute;left:50%;top:50%;width:200px;margin:-100px 0 0 -100px;transform:translateX(var(--orbit-radius)) scaleY(1.81818);animation:orbit-counter 120s linear infinite;animation-delay:var(--phase)}
+.orbit-upright .project-card{width:200px;pointer-events:auto;background:#fbfbfd80}
+.orbit-upright .project-card h3{font-size:16px}
+.orbit-upright .shape-wrap{height:125px}
+.orbit-upright .shape{animation-duration:20s}
+.orbit-live:has(.project-card:hover) .orbit-position,.orbit-live:has(.project-card:hover) .orbit-upright,.orbit-live:focus-within .orbit-position,.orbit-live:focus-within .orbit-upright{animation-play-state:paused}
+@keyframes orbit-track{from{transform:scaleY(.55) rotate(0deg)}to{transform:scaleY(.55) rotate(360deg)}}
+@keyframes orbit-counter{from{transform:translateX(var(--orbit-radius)) rotate(0deg) scaleY(1.81818)}to{transform:translateX(var(--orbit-radius)) rotate(-360deg) scaleY(1.81818)}}
+@media(max-width:900px){.page.detail-wide{padding:20px 16px}.orbit-stage.orbit-live{--orbit-radius:32vw}.orbit-upright .project-card{width:150px}.orbit-upright{width:150px;margin-left:-75px}.orbit-upright .shape{width:75px;height:75px}.orbit-upright .shape.peach{width:85px;height:85px}}
+@media(prefers-reduced-motion:reduce){.orbit-position{transform:scaleY(.55) rotate(var(--angle,0deg))}.orbit-upright{transform:translateX(var(--orbit-radius)) rotate(calc(-1 * var(--angle,0deg))) scaleY(1.81818)}}
